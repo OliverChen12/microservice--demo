@@ -5,9 +5,8 @@ import com.example.productservice.po.Product;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 /**
  * 商品的服务控制层
@@ -36,9 +35,9 @@ public class ProductController {
         return productList;
     }
 
-    @GetMapping("/addProductByProductName/{productName}")
-    public String addProductByProductName(@PathVariable String productName){
-        productMapper.addProductByProductName(productName);
+    @PostMapping("/addProduct")
+    public String addProduct(@RequestBody Product product){
+        productMapper.addProduct(product);
         return "添加商品成功！";
     }
 }
