@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfi
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
-@SpringBootApplication(scanBasePackages = {"com.example.userclient.controller"}, exclude = SecurityAutoConfiguration.class)
+@SpringBootApplication(scanBasePackages = {"com.example.userclient.controller","com.example.userclient.client"}, exclude = SecurityAutoConfiguration.class)
 @EnableEurekaClient
 @EnableFeignClients("com.example.userclient.client")
 public class UserClientApplication {

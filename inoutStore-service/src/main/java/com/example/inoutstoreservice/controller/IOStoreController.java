@@ -21,20 +21,20 @@ public class IOStoreController {
      * 根据商品 id 查询商品
      */
     @GetMapping("/findByProductId/{productId}")
-    public Product findByProductId(@PathVariable Long productId) {
+    public Product findByProductId(@PathVariable Long productId) throws InterruptedException{
         Product product = IOStoreMapper.findByProductId(productId);
         log.info("-------------OK /findByProductId/{productId}----------- ---------");
         return product;
     }
 
     @GetMapping("/addStockByProductId/{productId}")
-    public String addStockByProductId(@PathVariable Long productId){
+    public String addStockByProductId(@PathVariable Long productId) throws InterruptedException{
         IOStoreMapper.addStockByProductId(productId);
         return "添加库存成功！";
     }
 
     @GetMapping("/subStockByProductId/{productId}")
-    public String subStockByProductId(@PathVariable Long productId){
+    public String subStockByProductId(@PathVariable Long productId) throws InterruptedException{
         Product product = IOStoreMapper.findByProductId(productId);
         if(product.getStock() <= 0){
             return "库存不足，扣减失败！";

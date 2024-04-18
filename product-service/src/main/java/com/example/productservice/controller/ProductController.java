@@ -20,23 +20,24 @@ public class ProductController {
      * 根据商品 id 查询商品
      */
     @GetMapping("/findByProductId/{productId}")
-    public Product findByProductId(@PathVariable Long productId) {
+    public Product findByProductId(@PathVariable Long productId) throws
+            InterruptedException {
         Product product = productMapper.findByProductId(productId);
-        log.info("-------------OK /findByProductId/{productId}----------- ---------");
+        log.info("-------------OK /findByProductId/{productId}---------");
         return product;
     }
     /**
      * 查询所有商品
      */
     @GetMapping("/queryAllProduct")
-    public List<Product> findByProductId() {
+    public List<Product> findByProductId() throws InterruptedException{
         List<Product> productList = productMapper.queryAllProduct();
         log.info("-------------OK queryAllProduct--------------------");
         return productList;
     }
 
     @PostMapping("/addProduct")
-    public String addProduct(@RequestBody Product product){
+    public String addProduct(@RequestBody Product product) throws InterruptedException{
         productMapper.addProduct(product);
         return "添加商品成功！";
     }

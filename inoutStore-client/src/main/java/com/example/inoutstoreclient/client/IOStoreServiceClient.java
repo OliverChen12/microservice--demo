@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 
-@FeignClient(name="inoutStore-service")
+@FeignClient(name="inoutStore-service",fallback = IOStoreServiceFallback.class)
 public interface IOStoreServiceClient {
 
     @GetMapping("/findByProductId/{productId}")

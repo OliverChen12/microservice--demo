@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
     private final UserMapper userMapper;
     @PostMapping("/login")
-    public String login(@PathVariable User user){
+    public String login(@PathVariable User user) throws InterruptedException{
         User userR = userMapper.findUserByUsername(user.getUsername());
         if(userR.getPassword().equals(user.getPassword())){
             return "登录成功！";
@@ -25,7 +25,7 @@ public class UserController {
     }
 
     @GetMapping("/findUserByUsername/{username}")
-    public User findUserByUsername(@PathVariable String username) {
+    public User findUserByUsername(@PathVariable String username) throws InterruptedException {
         return userMapper.findUserByUsername(username);
     }
 

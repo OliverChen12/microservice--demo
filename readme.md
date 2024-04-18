@@ -1,6 +1,6 @@
 ## 商品管理微服务——product
 
-service端口：8010
+service端口：8010、8030
 
 client端口：8018
 
@@ -30,7 +30,7 @@ client端口：8018
 
 ## 出库入库微服务——inoutStore
 
-service端口：8011
+service端口：8011/8031
 
 client端口：8019
 
@@ -43,7 +43,7 @@ client端口：8019
 
 ## 用户登录微服务——user
 
-service端口：8012
+service端口：8012、8032
 
 client端口：8020
 
