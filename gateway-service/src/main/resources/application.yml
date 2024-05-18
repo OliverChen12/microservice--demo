@@ -3,6 +3,8 @@ server:
 spring:
   application:
     name: "@artifactId@"
+  profiles:
+    active: k8s
   cloud:
     gateway:
       discovery:
@@ -32,9 +34,9 @@ spring:
             - Path=/user/**
 eureka:
   instance:
-    prefer-ip-address: false
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 15
   client:
     register-with-eureka: true
     fetch-registry: true
-    service-url:
-      defaultZone: http://127.0.0.1:8888/eureka
